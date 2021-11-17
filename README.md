@@ -1,6 +1,6 @@
-# kose-yazisi-uygulamasi
+# corner-writing-blog
 
-> My kickass Nuxt.js project
+> My  Nuxt.js project
 
 ## Build Setup
 
