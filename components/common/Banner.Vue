@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg p-0 d-flex justify-content-center align-items-center">
     <div class="overlay"></div>
-    <h1 class="text-center text-white">Nuxt.js | Köse Yazıları</h1>
+    <h1 class="text-center text-white">Nuxt.js | Corner Write</h1>
   </div>
 </template>
 
