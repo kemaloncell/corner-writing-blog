@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PostList />
+    <PostList :posts="fetchedPosts" />
   </div>
 </template>
 
@@ -9,6 +9,20 @@ import PostList from '@/components/post/PostList';
 export default {
   components: {
     PostList,
+  },
+  props: {
+    posts: {
+      required: true,
+      default: true,
+    },
+  },
+  asyncData(context, callback) {
+    callback(null, {
+      fetchedPosts: [
+        { id: 1, title: 'Nuxt.js', subTitle: 'I learn Nuxt.js', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ', author: 'Kemal Öncel' },
+        { id: 2, title: 'Node.js', subTitle: 'I learn Node.js', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ', author: 'Kemal Öncel' },
+      ],
+    });
   },
 };
 </script>
