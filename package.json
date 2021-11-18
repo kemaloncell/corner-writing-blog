@@ -1,7 +1,7 @@
 {
   "name": "corner-writing-blog",
   "version": "1.0.0",
-  "description": "My kickass Nuxt.js project",
+  "description": "My Nuxt.js project",
   "author": "Kemal Öncel",
   "private": true,
   "scripts": {
