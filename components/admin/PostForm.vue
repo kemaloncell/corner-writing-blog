@@ -1,27 +1,56 @@
 <template>
   <div class="container-fluid mt-5 d-flex flex-wrap justify-content-center align-items-center">
-    <form style="width: 500px">
+    <form style="width: 500px" @submit.prevent="onSubmit">
       <fieldset>
-        <legend>New Corner Post</legend>
+        <legend v-if="isUpdate">Edit Corner Post</legend>
+        <legend v-else>New Corner Post</legend>
         <div class="form-group">
           <label>Author Name</label>
-          <input type="text" class="form-control" placeholder="Name.." />
+          <input v-model="post.author" type="text" class="form-control" placeholder="Name.." />
         </div>
         <div class="form-group">
           <label>Title</label>
-          <input type="text" class="form-control" placeholder="Title.." />
+          <input v-model="post.title" type="text" class="form-control" placeholder="Title.." />
         </div>
         <div class="form-group">
           <label>Sub Title</label>
-          <input type="text" class="form-control" placeholder="Sub Title.." />
+          <input v-model="post.subTitle" type="text" class="form-control" placeholder="Sub Title.." />
         </div>
         <div class="form-group">
-          <label for="exampleTextarea">Corner Post</label>
-          <textarea class="form-control" rows="5"></textarea>
+          <label>Corner Post</label>
+          <textarea v-model="post.text" class="form-control" rows="5"></textarea>
         </div>
-        <button class="btn btn-danger">Cancel</button>
+        <button @click="$router.push('/admin')" class="btn btn-danger">Cancel</button>
         <button type="submit" class="btn btn-primary">Submit</button>
       </fieldset>
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    isUpdate: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      post: {
+        title: null,
+        subTitle: null,
+        author: null,
+        text: null,
+      },
+    };
+  },
+
+  methods: {
+    onSubmit() {
+      this.$emit('submit', this.post);
+    },
+  },
+};
+</script>
