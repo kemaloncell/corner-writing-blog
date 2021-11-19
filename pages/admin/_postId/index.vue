@@ -18,12 +18,9 @@ export default {
   },
   methods: {
     updatePost(editedPost) {
-      axios
-        .put(`https://corner-posts-nuxtjs-default-rtdb.firebaseio.com/posts/${this.$route.params.postId}.json`, editedPost)
-        .then((res) => {
-          this.$router.push('/admin');
-        })
-        .catch((err) => console.log(err));
+      this.$store.dispatch('updatePost', { ...editedPost, id: this.$route.params.postId }).then((res) => {
+        this.$router.push('/admin');
+      });
     },
   },
 };
