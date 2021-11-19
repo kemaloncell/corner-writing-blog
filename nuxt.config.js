@@ -28,7 +28,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/bootstrap.min.css'],
+  css: ['~/assets/style/bootstrap.min.css', '~/assets/style/transition.css'],
 
   // dev: false  =>
 
@@ -36,6 +36,11 @@ module.exports = {
 
   env: {
     baseURL: 'https://corner-posts-nuxtjs-default-rtdb.firebaseio.com/',
+  },
+
+  transition: {
+    name: 'layout', // all layout
+    mode: 'out-in',
   },
 
   /*
