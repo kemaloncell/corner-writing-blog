@@ -9,7 +9,11 @@
 
 <script>
 import PostList from '@/components/post/PostList';
+
 export default {
+  head: {
+    title: 'Admin | Corner Post',
+  },
   layout: 'admin',
   components: {
     PostList,

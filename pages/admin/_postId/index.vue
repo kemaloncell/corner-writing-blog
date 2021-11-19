@@ -10,7 +10,7 @@ export default {
     PostForm,
   },
   asyncData(context) {
-    return axios.get(`https://corner-posts-nuxtjs-default-rtdb.firebaseio.com/posts/${context.params.postId}.json`).then((res) => {
+    return axios.get(`${process.env.baseURL}posts/${context.params.postId}.json`).then((res) => {
       return {
         fetchedPost: res.data,
       };
