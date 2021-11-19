@@ -4,23 +4,17 @@
 
 <script>
 import PostDetail from '@/components/post/PostDetail';
+import axios from 'axios';
 export default {
   components: {
     PostDetail,
   },
-  // this.$route.params.postId == context.params.postId
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        fetchedPost: {
-          id: '1',
-          title: 'JavaScript',
-          subTitle: 'We are learn Js ',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam adipisci quos minus debitis ducimus molestias deserunt impedit voluptas.',
-          author: 'Kemal Öncel',
-        },
-      });
-    }, 1500);
+  asyncData(context) {
+    return axios.get(`https://corner-posts-nuxtjs-default-rtdb.firebaseio.com/posts/${context.params.postId}.json`).then((res) => {
+      return {
+        fetchedPost: res.data,
+      };
+    });
   },
 };
 </script>
