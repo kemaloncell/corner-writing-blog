@@ -12,6 +12,9 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
+        if (!process.client) {
+          console.log('serverdayız');
+        }
         vuexContext.commit('setPosts', [
           { id: 1, title: 'Nuxt.js', subTitle: 'I learn Nuxt.js', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ', author: 'Kemal Öncel' },
           { id: 2, title: 'Node.js', subTitle: 'I learn Node.js', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ', author: 'Kemal Öncel' },
