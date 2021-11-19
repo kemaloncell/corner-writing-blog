@@ -9,6 +9,10 @@ const createStore = () => {
       setPosts(state, posts) {
         state.fethedPosts = posts;
       },
+      addPost(state, post) {
+        state.fethedPosts.push(post);
+      },
+      updatePost(state, post) {},
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -23,6 +27,14 @@ const createStore = () => {
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts);
+      },
+      addPost(vuexContext, post) {
+        axios
+          .post('https://corner-posts-nuxtjs-default-rtdb.firebaseio.com/posts.json', post)
+          .then((res) => {
+            return vuexContext.commit('addPost', { ...post, id: res.data.name });
+          })
+          .catch((err) => console.log(err));
       },
     },
     getters: {
