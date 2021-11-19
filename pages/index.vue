@@ -21,7 +21,7 @@ export default {
       return this.$store.getters.getPosts;
     },
   },
-  fetch(context) {
+  /*  fetch(context) {
     return new Promise((resolve, reject) => {
       resolve(
         context.store.dispatch('setPosts', [
@@ -32,7 +32,7 @@ export default {
     }).catch((err) => {
       context.error(new Error());
     });
-  },
+  }, */
 };
 </script>
 
