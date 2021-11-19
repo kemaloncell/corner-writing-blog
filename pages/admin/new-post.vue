@@ -4,7 +4,6 @@
 
 <script>
 import PostForm from '@/components/admin/PostForm';
-import axios from 'axios';
 export default {
   components: {
     PostForm,
